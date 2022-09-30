@@ -1,5 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import {MatCardModule} from '@angular/material/card';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
