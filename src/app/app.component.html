@@ -332,58 +332,96 @@
     <mat-card-title class="title">Descubre tu oferta en un solo paso</mat-card-title>
     <mat-card-subtitle class="subtitle">Responde estas preguntas para ayudarnos a determinar las ofertas de préstamos que te corresponden.</mat-card-subtitle>
     <mat-card-content>
-      <form  >
+        <form [formGroup]="formof" (ngSubmit)="onSubmit2()" >
+          
         <mat-label>¿Cuento con al menos 25 años de edad?</mat-label>
-        <p>
-          <div>
-             <h1 class="sub">Si</h1>
-          </div>
-          <div>
-            <h1 class="sub">No</h1>
+        <p>          
+          <div class="example-section">
+            <mat-radio-group formControlName="mayor" 
+             aria-labelledby="example-radio-group-label" class="example-radio-group">
+             <mat-radio-button class="example-radio-button" 
+              *ngFor="let country of options" [value]="country.name" (change)="changemayor($event)">
+                  {{ country.name }}
+             </mat-radio-button>
+            </mat-radio-group>
          </div>
          <mat-label>¿Soy propietario de un negocio con 3 años de operación?</mat-label>
         <p>
-          <div>
-             <h1 class="sub">Si</h1>
-          </div>
-          <div>
-            <h1 class="sub">No</h1>
+          <div class="example-section">
+            <mat-radio-group formControlName="propietario" 
+             aria-labelledby="example-radio-group-label" class="example-radio-group">
+             <mat-radio-button class="example-radio-button" 
+              *ngFor="let country of options" [value]="country.name" (change)="changepropietario($event)">
+                  {{ country.name }}
+             </mat-radio-button>
+            </mat-radio-group>
          </div>
          <mat-label>¿Dónde vives?</mat-label>
         <p>
-          <div>
-             <h1 class="sub">Si</h1>
-          </div>
-          <div>
-            <h1 class="sub">No</h1>
+          <div class="example-section">
+            <mat-radio-group formControlName="ubicacion" 
+             aria-labelledby="example-radio-group-label" class="example-radio-group">
+             <mat-radio-button class="example-radio-button" 
+              *ngFor="let country of optionslive" [value]="country.value" (change)="changeubicacion($event)">
+                  {{ country.name }}
+             </mat-radio-button>
+            </mat-radio-group>
          </div>
 
-         
+
+         <div class="form-group">
          <mat-label>¿Cuanto es el prestamo que necesita?</mat-label>
         
           <mat-form-field class="example-full-width" appearance="fill">
-            <input matInput placeholder="Ingresar monto" type="number">
+            <input matInput placeholder="Ingresar monto" 
+                   type="number"
+                   formControlName="prestamo"
+                   [ngClass]="{ 'is-invalid': submitted && fom['prestamo'].errors }"
+                   />
+                   <span matPrefix>$&nbsp;</span>
+                   
           </mat-form-field>
+          <div *ngIf="submitted && fom['prestamo'].errors" class="invalid-feedback">
+            <div *ngIf="fom['prestamo'].errors['prestamo']">Fullname is required</div>
+          </div>
+        </div>
         <mat-label>¿Cuál es tu ingreso mensual promedio después de gastos del negocio?</mat-label>
        
         <mat-form-field class="example-full-width" appearance="fill">          
-          <input matInput placeholder="Ingresar monto" type="number">
+          <input matInput placeholder="Ingresar monto" 
+          type="number"
+          formControlName="ingreso"
+          [ngClass]="{ 'is-invalid': submitted && fom['ingreso'].errors }"
+          />
+          <span matPrefix>$&nbsp;</span>
         </mat-form-field>
+        <div *ngIf="submitted && fom['ingreso'].errors" class="invalid-feedback">
+          <div *ngIf="fom['ingreso'].errors['ingreso']">ingreso is required</div>
+        </div>
 
         <mat-label>¿En promedio, cuáles son los gastos mensuales de tus necesidades y las de tu familia?(es decir, servicios públicos, alimentos, educación, cuidado de niños, etc.)</mat-label>
        
         <mat-form-field class="example-full-width" appearance="fill">          
-          <input matInput placeholder="Ingresar monto" type="number" >
+          <input matInput placeholder="Ingresar monto" 
+          type="number" 
+          formControlName="gastos"
+          [ngClass]="{ 'is-invalid': submitted && fom['gastos'].errors }"/>
+          <span matPrefix>$&nbsp;</span>
         </mat-form-field>
+        <div *ngIf="submitted && fom['gastos'].errors" class="invalid-feedback">
+          <div *ngIf="fom['gastos'].errors['gastos']">gastos is required</div>
+        </div>
         
         <mat-label>¿Tiene algún préstamo en atrasos a un banco u otra institución financiera?</mat-label>
-        
-          <div>
-             <h1 class="sub">Si</h1>
-          </div>
-          <div>
-            <h1 class="sub">No</h1>
-         </div>
+        <div class="example-section">
+          <mat-radio-group formControlName="atrasos" 
+           aria-labelledby="example-radio-group-label" class="example-radio-group">
+           <mat-radio-button class="example-radio-button" 
+            *ngFor="let country of options" [value]="country.value" (change)="changeatrasos($event)">
+                {{ country.name }}
+           </mat-radio-button>
+          </mat-radio-group>
+       </div>
          
         <button
           mat-raised-button
@@ -397,6 +435,122 @@
     </mat-card-content>
   </mat-card>
   <br>
+
+  <div class="register-form">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Full Name</label>
+        <input
+          type="text"
+          formControlName="fullname"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f['fullname'].errors }"
+        />
+        <div *ngIf="submitted && f['fullname'].errors" class="invalid-feedback">
+          <div *ngIf="f['fullname'].errors['required']">Fullname is required</div>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label>Username</label>
+        <input
+          type="text"
+          formControlName="username"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f['username'].errors }"
+        />
+        <div *ngIf="submitted && f['username'].errors" class="invalid-feedback">
+          <div *ngIf="f['username'].errors['required']">Username is required</div>
+          <div *ngIf="f['username'].errors['minlength']">
+            Username must be at least 6 characters
+          </div>
+          <div *ngIf="f['username'].errors['maxlength']">
+            Username must not exceed 20 characters
+          </div>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label>Email</label>
+        <input
+          type="text"
+          formControlName="email"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"
+        />
+        <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+          <div *ngIf="f['email'].errors['required']">Email is required</div>
+          <div *ngIf="f['email'].errors['email']">Email is invalid</div>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label>Password</label>
+        <input
+          type="password"
+          formControlName="password"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"
+        />
+        <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+          <div *ngIf="f['password'].errors['required']">Password is required</div>
+          <div *ngIf="f['password'].errors['minlength']">
+            Password must be at least 6 characters
+          </div>
+          <div *ngIf="f['password'].errors['maxlength']">
+            Username must not exceed 40 characters
+          </div>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label>Confirm Password</label>
+        <input
+          type="password"
+          formControlName="confirmPassword"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f['confirmPassword'].errors }"
+        />
+        <div
+          *ngIf="submitted && f['confirmPassword'].errors"
+          class="invalid-feedback"
+        >
+          <div *ngIf="f['confirmPassword'].errors['required']">
+            Confirm Password is required
+          </div>
+          <div *ngIf="f['confirmPassword'].errors['matching']">
+            Confirm Password does not match
+          </div>
+        </div>
+      </div>
+  
+      <div class="form-group form-check">
+        <input
+          type="checkbox"
+          formControlName="acceptTerms"
+          class="form-check-input"
+          [ngClass]="{ 'is-invalid': submitted && f['acceptTerms'].errors }"
+        />
+        <label for="acceptTerms" class="form-check-label"
+          >I have read and agree to the Terms</label
+        >
+        <div *ngIf="submitted && f['acceptTerms'].errors" class="invalid-feedback">
+          Accept Terms is required
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Register</button>
+        <button
+          type="button"
+          (click)="onReset()"
+          class="btn btn-warning float-right"
+        >
+          Reset
+        </button>
+      </div>
+    </form>
+  </div>
 
   
 

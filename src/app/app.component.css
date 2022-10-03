@@ -68,3 +68,33 @@ mat-label {
     color: #686868;
     font-size: 16px;
 }
+.example-radio-button{
+    color:#686868;
+    margin-top: 16px;
+    display: flex;
+}
+
+input[type=checkbox] + label {
+    display: inline-block;
+    position: relative;
+    padding: 8px;
+    background-color: #A7D8A7;
+    border: 1px dotted #1E441E;
+    border-radius: 4px;
+    
+}
+
+
+p {
+    font-family: Lato;
+  }
+  
+  #root {
+    padding: 30px;
+  }
+  
+  .register-form {
+    max-width: 350px;
+    margin: auto;
+  }
+  
