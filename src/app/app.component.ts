@@ -18,6 +18,11 @@ import Validation from './utils/validation';
 export class AppComponent {
   title = 'formof';
 
+
+  public show_dialog : boolean = true;
+  public show_dialog2 : boolean = false;
+
+
   
 options: Array<any> = [
     { name: 'Si', value: 'Si' },
@@ -139,6 +144,9 @@ optionslive: Array<any> = [
     if (this.formof.invalid) {
       return;
     }
+    this.show_dialog = !this.show_dialog;
+    this.show_dialog2 = !this.show_dialog2;
+
 
     console.log(JSON.stringify(this.formof.value, null, 2));
   }
