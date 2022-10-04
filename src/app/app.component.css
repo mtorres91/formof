@@ -1,5 +1,6 @@
 .example-card {
     max-width: 1000px;
+    min-width: none;
   }
 
   mat-form-field {
@@ -10,7 +11,7 @@
   .login-button {
     margin-top: 20px;
     display: block;
-    width: 100%;
+    width: 50%;
     height: 70px;
     margin: 20px auto;
     background-color: #e0834f;
@@ -28,14 +29,19 @@
     align-content: center;
     margin: auto;
     text-align: center;
+    text-decoration: none; 
     
+  }
+  mat-card{
+    border-radius: 8px;
   }
 .title{
 
     background-color: #e1e6e3;
-    margin: -15px;
+    margin: -16px;
+    
     text-align: center;
-    border-radius: 5px;
+    border-radius: 8px;
     height: 140px;
     justify-content: center;
     align-items: center;
@@ -45,12 +51,23 @@
 
 
 }
+
+.title2{
+
+   color: #e0834f;
+   text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+
+
+}
 .subtitle{
 
     margin: auto;
     text-align: center;
     border-radius: 5px;
-    height: 150px;
+    height: 120px;
     justify-content: center;
     align-items: center;
     display: flex;
@@ -58,6 +75,7 @@
     
 
     font-size: 18px;
+    margin-bottom: -30px;
 
 }
 mat-label {
@@ -67,6 +85,12 @@ mat-label {
     color: #000000;
     font-size: 17px;
     font-weight: 500;
+    
+}
+
+
+mat-card .cardgracias{
+    height: 500px;
 }
 .sub{
     color: #686868;
@@ -102,3 +126,40 @@ p {
     margin: auto;
   }
   
+  .invalid-feedback{
+    color: red;
+  }
+
+  @media screen and (max-width: 1000px) {
+
+}
+  
+
+  @media screen and (max-width: 640px) {
+    .title{
+        font-size: 23px;
+        font-weight: 400;
+    }
+
+    .subtitle{
+        font-size: 16px;
+        font-weight: 400;
+        margin: 50px;
+        height: 120px;
+        font-weight: 500;
+        margin-bottom: -30px;
+    }
+    
+    mat-label {
+        font-size: 15px;
+        font-weight: 500;
+    }
+
+    .login-button {
+        height: 60px;
+        margin: 20px auto;
+        font-size: 18px;
+        font-weight: 400;
+      }
+    
+  }

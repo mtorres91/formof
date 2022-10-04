@@ -8,29 +8,7 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
 <style>
-  :host {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-size: 14px;
-    color: #333;
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin: 8px 0;
-  }
-
-  p {
-    margin: 0;
-  }
-
-  
+ 
 
   .toolbar {
     position: absolute;
@@ -49,218 +27,22 @@
     margin: 0 316px;
   }
 
-  .toolbar #twitter-logo {
-    height: 40px;
-    margin: 0 8px;
-  }
 
-  .toolbar #youtube-logo {
-    height: 40px;
-    margin: 0 16px;
-  }
-
-  .toolbar #twitter-logo:hover,
-  .toolbar #youtube-logo:hover {
-    opacity: 0.8;
-  }
 
   .content {
     display: flex;
     margin: 120px auto 32px;
-    padding: 0 16px;
+    padding: 0 20px;
     max-width: 1100px;
+    min-width: none;
     flex-direction: column;
     align-items: center;
+    height: 500px;
+    
   }
 
-  svg.material-icons {
-    height: 24px;
-    width: auto;
-  }
 
-  svg.material-icons:not(:last-child) {
-    margin-right: 8px;
-  }
 
-  .card svg.material-icons path {
-    fill: #888;
-  }
-
-  .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 16px;
-  }
-
-  .card {
-    all: unset;
-    border-radius: 4px;
-    border: 1px solid #eee;
-    background-color: #fafafa;
-    height: 40px;
-    width: 200px;
-    margin: 0 8px 16px;
-    padding: 16px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.2s ease-in-out;
-    line-height: 24px;
-  }
-
-  .card-container .card:not(:last-child) {
-    margin-right: 0;
-  }
-
-  .card.card-small {
-    height: 16px;
-    width: 168px;
-  }
-
-  .card-container .card:not(.highlight-card) {
-    cursor: pointer;
-  }
-
-  .card-container .card:not(.highlight-card):hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
-  }
-
-  .card-container .card:not(.highlight-card):hover .material-icons path {
-    fill: rgb(105, 103, 103);
-  }
-
-  .card.highlight-card {
-    background-color: #000000;
-    color: white;
-    font-weight: 600;
-    border: none;
-    width: auto;
-    min-width: 30%;
-    position: relative;
-  }
-
-  .card.card.highlight-card span {
-    margin-left: 60px;
-  }
-
-  svg#rocket {
-    width: 80px;
-    position: absolute;
-    left: -10px;
-    top: -24px;
-  }
-
-  svg#rocket-smoke {
-    height: calc(100vh - 95px);
-    position: absolute;
-    top: 10px;
-    right: 180px;
-    z-index: -10;
-  }
-
-  a,
-  a:visited,
-  a:hover {
-    color: #1976d2;
-    text-decoration: none;
-  }
-
-  a:hover {
-    color: #125699;
-  }
-
-  .terminal {
-    position: relative;
-    width: 80%;
-    max-width: 600px;
-    border-radius: 6px;
-    padding-top: 45px;
-    margin-top: 8px;
-    overflow: hidden;
-    background-color: rgb(15, 15, 16);
-  }
-
-  .terminal::before {
-    content: "\2022 \2022 \2022";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 4px;
-    background: rgb(58, 58, 58);
-    color: #c2c3c4;
-    width: 100%;
-    font-size: 2rem;
-    line-height: 0;
-    padding: 14px 0;
-    text-indent: 4px;
-  }
-
-  .terminal pre {
-    font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
-    color: white;
-    padding: 0 1rem 1rem;
-    margin: 0;
-  }
-
-  .circle-link {
-    height: 40px;
-    width: 40px;
-    border-radius: 40px;
-    margin: 8px;
-    background-color: white;
-    border: 1px solid #eeeeee;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    transition: 1s ease-out;
-  }
-
-  .circle-link:hover {
-    transform: translateY(-0.25rem);
-    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
-  }
-
-  footer {
-    margin-top: 8px;
-    display: flex;
-    align-items: center;
-    line-height: 20px;
-  }
-
-  footer a {
-    display: flex;
-    align-items: center;
-  }
-
-  .github-star-badge {
-    color: #24292e;
-    display: flex;
-    align-items: center;
-    font-size: 12px;
-    padding: 3px 10px;
-    border: 1px solid rgba(27,31,35,.2);
-    border-radius: 3px;
-    background-image: linear-gradient(-180deg,#fafbfc,#eff3f6 90%);
-    margin-left: 4px;
-    font-weight: 600;
-  }
-
-  .github-star-badge:hover {
-    background-image: linear-gradient(-180deg,#f0f3f6,#e6ebf1 90%);
-    border-color: rgba(27,31,35,.35);
-    background-position: -.5em;
-  }
-
-  .github-star-badge .material-icons {
-    height: 16px;
-    width: 16px;
-    margin-right: 4px;
-  }
 
   svg#clouds {
     position: fixed;
@@ -287,19 +69,6 @@
 
   /* Responsive Styles */
   @media screen and (max-width: 767px) {
-    .card-container > *:not(.circle-link) ,
-    .terminal {
-      width: 100%;
-    }
-
-    .card:not(.highlight-card) {
-      height: 16px;
-      margin: 8px 0;
-    }
-
-    .card.highlight-card span {
-      margin-left: 72px;
-    }
 
     svg#rocket-smoke {
       right: 120px;
@@ -307,12 +76,23 @@
     }
   }
 
+  @media screen and (max-width: 640px) {
+  .content {
+    margin: 90px auto 0px;
+    padding: 0 0px;
+  }
+}
+
   @media screen and (max-width: 575px) {
     svg#rocket-smoke {
       display: none;
       visibility: hidden;
     }
   }
+
+        #specifyColor {
+            accent-color: red;
+        }
 </style>
 
 <!-- Toolbar -->
@@ -340,33 +120,42 @@
           <div class="example-section">
             <mat-radio-group formControlName="mayor" 
              aria-labelledby="example-radio-group-label" class="example-radio-group">
-             <mat-radio-button class="example-radio-button" 
+             <mat-radio-button class="example-radio-button"  color="warn"
               *ngFor="let country of options" [value]="country.name" (change)="changemayor($event)">
                   {{ country.name }}
              </mat-radio-button>
             </mat-radio-group>
+            <div *ngIf="submitted && fom['mayor'].errors" class="invalid-feedback">
+              <div *ngIf="fom['mayor'].errors['required']">Es requerido</div>
+            </div>
          </div>
          <mat-label>¿Soy propietario de un negocio con 3 años de operación?</mat-label>
         <p>
           <div class="example-section">
-            <mat-radio-group formControlName="propietario" 
+            <mat-radio-group formControlName="propietario" color="warn"
              aria-labelledby="example-radio-group-label" class="example-radio-group">
              <mat-radio-button class="example-radio-button" 
               *ngFor="let country of options" [value]="country.name" (change)="changepropietario($event)">
                   {{ country.name }}
              </mat-radio-button>
             </mat-radio-group>
+            <div *ngIf="submitted && fom['propietario'].errors" class="invalid-feedback">
+              <div *ngIf="fom['propietario'].errors['required']">Es requerido</div>
+            </div>
          </div>
          <mat-label>¿Dónde vives?</mat-label>
         <p>
           <div class="example-section">
-            <mat-radio-group formControlName="ubicacion" 
+            <mat-radio-group formControlName="ubicacion" color="warn"
              aria-labelledby="example-radio-group-label" class="example-radio-group">
              <mat-radio-button class="example-radio-button" 
               *ngFor="let country of optionslive" [value]="country.value" (change)="changeubicacion($event)">
                   {{ country.name }}
              </mat-radio-button>
             </mat-radio-group>
+            <div *ngIf="submitted && fom['ubicacion'].errors" class="invalid-feedback">
+              <div *ngIf="fom['ubicacion'].errors['required']">Es requerido</div>
+            </div>
          </div>
 
 
@@ -382,8 +171,9 @@
                    <span matPrefix>$&nbsp;</span>
                    
           </mat-form-field>
+          
           <div *ngIf="submitted && fom['prestamo'].errors" class="invalid-feedback">
-            <div *ngIf="fom['prestamo'].errors['prestamo']">Fullname is required</div>
+            <div *ngIf="fom['prestamo'].errors['required']">es requerido</div>
           </div>
         </div>
         <mat-label>¿Cuál es tu ingreso mensual promedio después de gastos del negocio?</mat-label>
@@ -397,7 +187,7 @@
           <span matPrefix>$&nbsp;</span>
         </mat-form-field>
         <div *ngIf="submitted && fom['ingreso'].errors" class="invalid-feedback">
-          <div *ngIf="fom['ingreso'].errors['ingreso']">ingreso is required</div>
+          <div *ngIf="fom['ingreso'].errors['required']">es requerido</div>
         </div>
 
         <mat-label>¿En promedio, cuáles son los gastos mensuales de tus necesidades y las de tu familia?(es decir, servicios públicos, alimentos, educación, cuidado de niños, etc.)</mat-label>
@@ -410,18 +200,22 @@
           <span matPrefix>$&nbsp;</span>
         </mat-form-field>
         <div *ngIf="submitted && fom['gastos'].errors" class="invalid-feedback">
-          <div *ngIf="fom['gastos'].errors['gastos']">gastos is required</div>
+          <div *ngIf="fom['gastos'].errors['required']">es requerido</div>
         </div>
+
         
         <mat-label>¿Tiene algún préstamo en atrasos a un banco u otra institución financiera?</mat-label>
         <div class="example-section">
-          <mat-radio-group formControlName="atrasos" 
+          <mat-radio-group formControlName="atrasos" color="warn"
            aria-labelledby="example-radio-group-label" class="example-radio-group">
            <mat-radio-button class="example-radio-button" 
             *ngFor="let country of options" [value]="country.value" (change)="changeatrasos($event)">
                 {{ country.name }}
            </mat-radio-button>
           </mat-radio-group>
+          <div *ngIf="submitted && fom['atrasos'].errors" class="invalid-feedback">
+              <div *ngIf="fom['atrasos'].errors['required']">Es requerido</div>
+            </div>
        </div>
        
         <button
@@ -440,39 +234,44 @@
   </mat-card>
   <br>
 
-  <mat-card  *ngIf="show_dialog2">
+  <mat-card  *ngIf="show_dialog2" >
     <mat-card-title class="title">paso 2</mat-card-title>
     <mat-card-subtitle class="subtitle">Para hablar sobre su proceso de solicitud y el monto específico del préstamo, es necesario que deje su información a continuación y nos contactaremos con usted.</mat-card-subtitle>
     <mat-card-content>
-        <form [formGroup]="formof" (ngSubmit)="onSubmit2()" >
+        <form [formGroup]="formofdatos" (ngSubmit)="onSubmit2datos()" >
 
           <div class="form-group">
             <mat-label>Nombre</mat-label>
            
              <mat-form-field class="example-full-width" appearance="fill">
-               <input matInput placeholder="Ingresar monto" 
+               <input matInput placeholder="Ingresar nombre" 
                       type="name"
-                      formControlName="prestamo"
-                      [ngClass]="{ 'is-invalid': submitted && fom['prestamo'].errors }"
+                      formControlName="nombre"
+                      [ngClass]="{ 'is-invalid': submitted && fomdatos['nombre'].errors }"
                       />
                       
              </mat-form-field>
-             <div *ngIf="submitted && fom['prestamo'].errors" class="invalid-feedback">
-               <div *ngIf="fom['prestamo'].errors['prestamo']">Fullname is required</div>
+             <div *ngIf="submitted && fomdatos['nombre'].errors" class="invalid-feedback">
+               <div *ngIf="fomdatos['nombre'].errors['required']">Nombre es requerido</div>
              </div>
            </div>
           
         <mat-label>Telefono celular</mat-label>
        
         <mat-form-field class="example-full-width" appearance="fill">          
-          <input matInput placeholder="Ingresar monto" 
-          type="name"
-          formControlName="ingreso"
-          [ngClass]="{ 'is-invalid': submitted && fom['ingreso'].errors }"
+          <input matInput placeholder="Ingresar celular" 
+          type="text"
+          maxlength="10"
+          formControlName="celular"
+          [ngClass]="{ 'is-invalid': submitted && fomdatos['celular'].errors }"
           />
+          <mat-icon matPrefix>phone</mat-icon>
         </mat-form-field>
-        <div *ngIf="submitted && fom['ingreso'].errors" class="invalid-feedback">
-          <div *ngIf="fom['ingreso'].errors['ingreso']">ingreso is required</div>
+        <div *ngIf="submitted && fomdatos['celular'].errors" class="invalid-feedback">
+          <div *ngIf="fomdatos['celular'].errors['required']">Telefono es requerido</div>
+          <div *ngIf="fomdatos['celular'].errors['pattern']">Please, Enter 10 digit Mobile Number.</div>
+          
+            
         </div>
 
         <mat-label>Email</mat-label>
@@ -480,18 +279,21 @@
         <mat-form-field class="example-full-width" appearance="fill">          
           <input matInput placeholder="Ingresar monto" 
           type="name" 
-          formControlName="gastos"
-          [ngClass]="{ 'is-invalid': submitted && fom['gastos'].errors }"/>
+          formControlName="email"
+          [ngClass]="{ 'is-invalid': submitted && fomdatos['email'].errors }"/>
+          <mat-icon matPrefix>email</mat-icon>
         </mat-form-field>
-        <div *ngIf="submitted && fom['gastos'].errors" class="invalid-feedback">
-          <div *ngIf="fom['gastos'].errors['gastos']">gastos is required</div>
+        <div *ngIf="submitted && fomdatos['email'].errors" class="invalid-feedback">
+          <div *ngIf="fomdatos['email'].errors['required']">Email es requerido</div>
+          <div *ngIf="fomdatos['email'].errors['email']">Email es invalido</div>
         </div>
+
        
         <button
           mat-raised-button
           class="login-button"
           type="submit">
-          Continuar
+          Enviar
         </button>
         <div >
           <a  class="link" style="color: #e0834f" href="https://www.oportunidadfinanzas.com.mx/mejora-tu-negocio">DE VUELTA A INICIO</a>
@@ -502,121 +304,25 @@
     </mat-card-content>
   </mat-card>
 
-  <div class="register-form" >
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label>Full Name</label>
-        <input
-          type="text"
-          formControlName="fullname"
-          class="form-control"
-          [ngClass]="{ 'is-invalid': submitted && f['fullname'].errors }"
-        />
-        <div *ngIf="submitted && f['fullname'].errors" class="invalid-feedback">
-          <div *ngIf="f['fullname'].errors['required']">Fullname is required</div>
-        </div>
-      </div>
-  
-      <div class="form-group">
-        <label>Username</label>
-        <input
-          type="text"
-          formControlName="username"
-          class="form-control"
-          [ngClass]="{ 'is-invalid': submitted && f['username'].errors }"
-        />
-        <div *ngIf="submitted && f['username'].errors" class="invalid-feedback">
-          <div *ngIf="f['username'].errors['required']">Username is required</div>
-          <div *ngIf="f['username'].errors['minlength']">
-            Username must be at least 6 characters
-          </div>
-          <div *ngIf="f['username'].errors['maxlength']">
-            Username must not exceed 20 characters
-          </div>
-        </div>
-      </div>
-  
-      <div class="form-group">
-        <label>Email</label>
-        <input
-          type="text"
-          formControlName="email"
-          class="form-control"
-          [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"
-        />
-        <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
-          <div *ngIf="f['email'].errors['required']">Email is required</div>
-          <div *ngIf="f['email'].errors['email']">Email is invalid</div>
-        </div>
-      </div>
-  
-      <div class="form-group">
-        <label>Password</label>
-        <input
-          type="password"
-          formControlName="password"
-          class="form-control"
-          [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"
-        />
-        <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
-          <div *ngIf="f['password'].errors['required']">Password is required</div>
-          <div *ngIf="f['password'].errors['minlength']">
-            Password must be at least 6 characters
-          </div>
-          <div *ngIf="f['password'].errors['maxlength']">
-            Username must not exceed 40 characters
-          </div>
-        </div>
-      </div>
-  
-      <div class="form-group">
-        <label>Confirm Password</label>
-        <input
-          type="password"
-          formControlName="confirmPassword"
-          class="form-control"
-          [ngClass]="{ 'is-invalid': submitted && f['confirmPassword'].errors }"
-        />
-        <div
-          *ngIf="submitted && f['confirmPassword'].errors"
-          class="invalid-feedback"
-        >
-          <div *ngIf="f['confirmPassword'].errors['required']">
-            Confirm Password is required
-          </div>
-          <div *ngIf="f['confirmPassword'].errors['matching']">
-            Confirm Password does not match
-          </div>
-        </div>
-      </div>
-  
-      <div class="form-group form-check">
-        <input
-          type="checkbox"
-          formControlName="acceptTerms"
-          class="form-check-input"
-          [ngClass]="{ 'is-invalid': submitted && f['acceptTerms'].errors }"
-        />
-        <label for="acceptTerms" class="form-check-label"
-          >I have read and agree to the Terms</label
-        >
-        <div *ngIf="submitted && f['acceptTerms'].errors" class="invalid-feedback">
-          Accept Terms is required
-        </div>
-      </div>
-  
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Register</button>
+  <mat-card  *ngIf="show_dialog3" class="cardgracias">
+    <mat-card-title class="title2">¡Gracias!</mat-card-title>
+    <mat-card-subtitle class="subtitle">Uno de los miembros de nuestro equipo se comunicará contigo pronto.</mat-card-subtitle>
+    <mat-card-content>
+       
+      <a  class="link" style="color: #e0834f" href="https://www.oportunidadfinanzas.com.mx/mejora-tu-negocio">
+           
         <button
-          type="button"
-          (click)="onReset()"
-          class="btn btn-warning float-right"
-        >
-          Reset
-        </button>
-      </div>
-    </form>
-  </div>
+          mat-raised-button
+          class="login-button">
+          De vuelta a inicio
+        </button></a>
+        <div >
+        </div>  
+        
+    </mat-card-content>
+  </mat-card>
+
+  
 
   
 

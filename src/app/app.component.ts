@@ -8,6 +8,9 @@ import {
 } from '@angular/forms';
 import Validation from './utils/validation';
 
+import { ThemePalette } from '@angular/material/core';     
+
+
 
 
 @Component({
@@ -16,11 +19,15 @@ import Validation from './utils/validation';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  color: ThemePalette = "primary";
+  
   title = 'formof';
 
 
   public show_dialog : boolean = true;
   public show_dialog2 : boolean = false;
+  public show_dialog3 : boolean = false;
 
 
   
@@ -43,6 +50,12 @@ optionslive: Array<any> = [
     propietario: new FormControl(''),
     ubicacion: new FormControl(''),
     atrasos: new FormControl('')
+  });
+
+  formofdatos: FormGroup = new FormGroup({
+    nombre: new FormControl(''),
+    celular: new FormControl(''),
+    email: new FormControl('')
   });
 
 
@@ -68,10 +81,19 @@ optionslive: Array<any> = [
         prestamo: ['', Validators.required],
         ingreso: ['', Validators.required],
         gastos: ['', Validators.required],
-        mayor: [null, [Validators.required]],
-        propietario: [null, [Validators.required]],
-        ubicacion: [null, [Validators.required]],
-        atrasos: [null, [Validators.required]]
+        mayor: ['', [Validators.required]],
+        propietario: ['', [Validators.required]],
+        ubicacion: ['', [Validators.required]],
+        atrasos: ['', [Validators.required]]
+      }
+    );
+
+    //formofdatos//
+    this.formofdatos = this.formBuilder.group(
+      {
+        nombre: ['', Validators.required],
+        celular: ['',[ Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
+        email: ['', [Validators.required, Validators.email]]
       }
     );
 
@@ -113,6 +135,9 @@ optionslive: Array<any> = [
   get fom(): { [key: string]: AbstractControl } {
     return this.formof.controls;
   }
+  get fomdatos(): { [key: string]: AbstractControl } {
+    return this.formofdatos.controls;
+  }
 
   changemayor(event: any) {
     console.log(event.value);
@@ -149,6 +174,19 @@ optionslive: Array<any> = [
 
 
     console.log(JSON.stringify(this.formof.value, null, 2));
+  }
+
+  onSubmit2datos(): void {
+    this.submitted = true;
+
+    if (this.formofdatos.invalid) {
+      return;
+    }
+    
+    this.show_dialog2 = !this.show_dialog2;
+    this.show_dialog3 = !this.show_dialog3;
+
+    console.log(JSON.stringify(this.formofdatos.value, null, 2));
   }
 
   onReset(): void {
