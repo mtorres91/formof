@@ -35,9 +35,24 @@ $formof-theme: mat.define-light-theme((
 
 $orange-palette: (
   50: #e0834f,
-  100: #ffcdd2,
-  200: #ef9a9a,
-  300: #e57373,
+  100: #ff9114,
+  200: #995608,
+  300: #fda500,
+  // ...
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: white,
+    // ... continues to 900
+  )
+);
+
+$red-palette: (
+  50: #000000,
+  100: #000000,
+  200: #000000,
+  300: #000000,
   // ...
   contrast: (
     50: rgba(black, 0.87),

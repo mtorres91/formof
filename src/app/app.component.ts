@@ -7,8 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import Validation from './utils/validation';
-
-import { ThemePalette } from '@angular/material/core';     
+   
 
 
 
@@ -20,14 +19,19 @@ import { ThemePalette } from '@angular/material/core';
 })
 export class AppComponent {
 
-  color: ThemePalette = "primary";
+  emailid = '';
+
   
   title = 'formof';
+
 
 
   public show_dialog : boolean = true;
   public show_dialog2 : boolean = false;
   public show_dialog3 : boolean = false;
+
+  public show_dialog1 : boolean = false;
+  public show_dialogfelicidades : boolean = false;
 
 
   
@@ -152,6 +156,7 @@ optionslive: Array<any> = [
   }
   changeatrasos(event: any) {
     console.log(event.value);
+    this.emailid = event.emailid;
   }
   onSubmit(): void {
     this.submitted = true;
@@ -173,6 +178,23 @@ optionslive: Array<any> = [
     this.show_dialog2 = !this.show_dialog2;
 
 
+    var firstRow = Number((<HTMLInputElement> document.getElementById("ing")).value);
+    var Row =Number( (<HTMLInputElement> document.getElementById("gas")).value);
+    var atr = this.formof.get('atrasos')?.value;
+
+    var suma = firstRow-Row;
+
+    if(suma<8000 || atr == 'Si'){
+
+      this.show_dialog1 = !this.show_dialog1;
+      
+    console.log("pedir mas informes");
+    }else{
+      this.show_dialogfelicidades = !this.show_dialogfelicidades;
+      console.log("calificado");
+    }
+
+    console.log(suma);
     console.log(JSON.stringify(this.formof.value, null, 2));
   }
 

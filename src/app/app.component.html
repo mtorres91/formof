@@ -125,8 +125,10 @@
                   {{ country.name }}
              </mat-radio-button>
             </mat-radio-group>
+            <div *ngIf="formof.value['mayor'] ==='No'" class="invalid-feedback">Actualmente para el producto PYME es necesario que el cliente cuente con al menos 25 años</div>
             <div *ngIf="submitted && fom['mayor'].errors" class="invalid-feedback">
               <div *ngIf="fom['mayor'].errors['required']">Es requerido</div>
+              
             </div>
          </div>
          <mat-label>¿Soy propietario de un negocio con 3 años de operación?</mat-label>
@@ -139,6 +141,7 @@
                   {{ country.name }}
              </mat-radio-button>
             </mat-radio-group>
+            <div *ngIf="formof.value['propietario'] ==='No'" class="invalid-feedback">Actualmente para el producto PYME es necesario que el cliente lleve operando con su negocio al menos 3 años</div>
             <div *ngIf="submitted && fom['propietario'].errors" class="invalid-feedback">
               <div *ngIf="fom['propietario'].errors['required']">Es requerido</div>
             </div>
@@ -153,6 +156,8 @@
                   {{ country.name }}
              </mat-radio-button>
             </mat-radio-group>
+            <div *ngIf="formof.value['ubicacion'] ==='OTRO'" class="invalid-feedback">Actualmente para solo tenemos presencia en el Area Metropolitana de CDMX y Guadalajara</div>
+           
             <div *ngIf="submitted && fom['ubicacion'].errors" class="invalid-feedback">
               <div *ngIf="fom['ubicacion'].errors['required']">Es requerido</div>
             </div>
@@ -182,6 +187,7 @@
           <input matInput placeholder="Ingresar monto" 
           type="number"
           formControlName="ingreso"
+          id="ing"
           [ngClass]="{ 'is-invalid': submitted && fom['ingreso'].errors }"
           />
           <span matPrefix>$&nbsp;</span>
@@ -196,6 +202,7 @@
           <input matInput placeholder="Ingresar monto" 
           type="number" 
           formControlName="gastos"
+          id="gas"
           [ngClass]="{ 'is-invalid': submitted && fom['gastos'].errors }"/>
           <span matPrefix>$&nbsp;</span>
         </mat-form-field>
@@ -206,10 +213,10 @@
         
         <mat-label>¿Tiene algún préstamo en atrasos a un banco u otra institución financiera?</mat-label>
         <div class="example-section">
-          <mat-radio-group formControlName="atrasos" color="warn"
+          <mat-radio-group   formControlName="atrasos" color="warn"
            aria-labelledby="example-radio-group-label" class="example-radio-group">
            <mat-radio-button class="example-radio-button" 
-            *ngFor="let country of options" [value]="country.value" (change)="changeatrasos($event)">
+            *ngFor="let country of options" [value]="country.value" (change)="changeatrasos($event)" >
                 {{ country.name }}
            </mat-radio-button>
           </mat-radio-group>
@@ -235,7 +242,8 @@
   <br>
 
   <mat-card  *ngIf="show_dialog2" >
-    <mat-card-title class="title">paso 2</mat-card-title>
+    <mat-card-title *ngIf="show_dialog1" class="title">Según las respuestas que ingresaste, necesitamos más información.</mat-card-title>
+    <mat-card-title *ngIf="show_dialogfelicidades" class="title">🎉Felicidades usted ha precalificado a nuestro préstamo!!</mat-card-title>
     <mat-card-subtitle class="subtitle">Para hablar sobre su proceso de solicitud y el monto específico del préstamo, es necesario que deje su información a continuación y nos contactaremos con usted.</mat-card-subtitle>
     <mat-card-content>
         <form [formGroup]="formofdatos" (ngSubmit)="onSubmit2datos()" >
@@ -269,7 +277,7 @@
         </mat-form-field>
         <div *ngIf="submitted && fomdatos['celular'].errors" class="invalid-feedback">
           <div *ngIf="fomdatos['celular'].errors['required']">Telefono es requerido</div>
-          <div *ngIf="fomdatos['celular'].errors['pattern']">Please, Enter 10 digit Mobile Number.</div>
+          <div *ngIf="fomdatos['celular'].errors['pattern']">Ingrese el número de teléfono móvil a 10 dígitos.</div>
           
             
         </div>
