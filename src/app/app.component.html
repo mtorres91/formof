@@ -178,7 +178,7 @@
           </mat-form-field>
           
           <div *ngIf="submitted && fom['prestamo'].errors" class="invalid-feedback">
-            <div *ngIf="fom['prestamo'].errors['required']">es requerido</div>
+            <div *ngIf="fom['prestamo'].errors['required']">Es requerido</div>
           </div>
         </div>
         <mat-label>¿Cuál es tu ingreso mensual promedio después de gastos del negocio?</mat-label>
@@ -193,7 +193,7 @@
           <span matPrefix>$&nbsp;</span>
         </mat-form-field>
         <div *ngIf="submitted && fom['ingreso'].errors" class="invalid-feedback">
-          <div *ngIf="fom['ingreso'].errors['required']">es requerido</div>
+          <div *ngIf="fom['ingreso'].errors['required']">Es requerido</div>
         </div>
 
         <mat-label>¿En promedio, cuáles son los gastos mensuales de tus necesidades y las de tu familia?(es decir, servicios públicos, alimentos, educación, cuidado de niños, etc.)</mat-label>
@@ -207,7 +207,7 @@
           <span matPrefix>$&nbsp;</span>
         </mat-form-field>
         <div *ngIf="submitted && fom['gastos'].errors" class="invalid-feedback">
-          <div *ngIf="fom['gastos'].errors['required']">es requerido</div>
+          <div *ngIf="fom['gastos'].errors['required']">Es requerido</div>
         </div>
 
         
@@ -270,6 +270,7 @@
           <input matInput placeholder="Ingresar celular" 
           type="text"
           maxlength="10"
+          oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
           formControlName="celular"
           [ngClass]="{ 'is-invalid': submitted && fomdatos['celular'].errors }"
           />

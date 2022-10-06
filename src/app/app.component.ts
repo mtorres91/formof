@@ -7,6 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import Validation from './utils/validation';
+import { HttpClient } from '@angular/common/http';
    
 
 
@@ -46,6 +47,8 @@ optionslive: Array<any> = [
   { name: 'Otro', value: 'OTRO' }
 ];
 
+
+
   formof: FormGroup = new FormGroup({
     prestamo: new FormControl(''),
     ingreso: new FormControl(''),
@@ -56,6 +59,7 @@ optionslive: Array<any> = [
     atrasos: new FormControl('')
   });
 
+  
   formofdatos: FormGroup = new FormGroup({
     nombre: new FormControl(''),
     celular: new FormControl(''),
@@ -75,7 +79,23 @@ optionslive: Array<any> = [
   
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, private http: HttpClient) {
+
+
+  }
+
+  enviocorreo(){
+    let params ={
+      email:this.formofdatos.value.email,
+      asunto:this.formofdatos.value.celular,
+      mensaje:(this.formofdatos.value.nombre+" "+this.formof.value.prestamo)
+    }
+    console.log(params)
+    this.http.post('http://localhost:3000/envio',params).subscribe(resp=>{
+      console.log(resp)
+    })
+  }
+
 
   ngOnInit(): void {
 
@@ -93,6 +113,9 @@ optionslive: Array<any> = [
     );
 
     //formofdatos//
+    
+
+    
     this.formofdatos = this.formBuilder.group(
       {
         nombre: ['', Validators.required],
@@ -172,6 +195,7 @@ optionslive: Array<any> = [
     this.submitted = true;
 
     if (this.formof.invalid) {
+      
       return;
     }
     this.show_dialog = !this.show_dialog;
@@ -208,6 +232,7 @@ optionslive: Array<any> = [
     this.show_dialog2 = !this.show_dialog2;
     this.show_dialog3 = !this.show_dialog3;
 
+    //this.enviocorreo();
     console.log(JSON.stringify(this.formofdatos.value, null, 2));
   }
 
@@ -222,4 +247,6 @@ export class CardSubtitleExample {
   from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was
   originally bred for hunting.`;
 }
+
+
 

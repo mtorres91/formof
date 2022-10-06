@@ -14,6 +14,8 @@ import { MatRadioModule } from '@angular/material/radio';
 import {MatIcon, MatIconModule}from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { ThemePalette } from '@angular/material/core';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -32,7 +34,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatInputModule,
     MatCheckboxModule,
     FormsModule,
-    MatRadioModule
+    MatRadioModule,
+    HttpClientModule
     
     
   ],
