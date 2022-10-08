@@ -233,7 +233,7 @@ optionslive: Array<any> = [
     this.show_dialog2 = !this.show_dialog2;
     this.show_dialog3 = !this.show_dialog3;
 
-    //this.enviocorreo();
+    this.enviocorreo();
     console.log(JSON.stringify(this.formofdatos.value, null, 2));
   }
 
