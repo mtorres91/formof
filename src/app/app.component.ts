@@ -117,7 +117,7 @@ optionslive: Array<any> = [
       email:this.formofdatos.value.email
     }
     console.log(user);
-    console.log("mandado correo");
+    console.log("sendmail");
     this.http.post('https://teal-pasca-e08b7d.netlify.app/sendmail',user).subscribe(
       resp=>{
         console.log("entro");
