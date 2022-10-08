@@ -111,6 +111,26 @@ optionslive: Array<any> = [
 
   }
 
+  envioc(){
+    let user ={
+      name:this.formofdatos.value.nombre,
+      email:this.formofdatos.value.email
+    }
+    console.log(user);
+    console.log("mandado correo");
+    this.http.post('https://sendemail-of.netlify.app/envio',user).subscribe(
+      resp=>{
+        console.log("entro");
+      console.log(resp);
+    })
+
+
+
+
+  }
+
+
+
 
 
 
@@ -258,7 +278,7 @@ optionslive: Array<any> = [
     this.show_dialog2 = !this.show_dialog2;
     this.show_dialog3 = !this.show_dialog3;
 
-    this.enviocorreo();
+    this.envioc();
     //this.sendEmail();
     console.log(JSON.stringify(this.formofdatos.value, null, 2));
   }
