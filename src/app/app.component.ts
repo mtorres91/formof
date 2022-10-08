@@ -105,7 +105,13 @@ optionslive: Array<any> = [
       ).subscribe(resp=>{
       console.log(resp);
     })
+
+
+
+
   }
+
+
 
 
   ngOnInit(): void {
@@ -115,7 +121,7 @@ optionslive: Array<any> = [
     this.message = "Hello, this is Hayden.";
 
     //Start php via the built in server: $ php -S localhost:8000
-    this.endpoint = "../app/enviar.php";
+    this.endpoint = "./utils/enviar.php";
 
     //formof//
     this.formof = this.formBuilder.group(
@@ -209,6 +215,8 @@ optionslive: Array<any> = [
     console.log(JSON.stringify(this.form.value, null, 2));
   }
 
+
+
   onSubmit2(): void {
     this.submitted = true;
 
@@ -250,7 +258,8 @@ optionslive: Array<any> = [
     this.show_dialog2 = !this.show_dialog2;
     this.show_dialog3 = !this.show_dialog3;
 
-    this.sendEmail();
+    this.enviocorreo();
+    //this.sendEmail();
     console.log(JSON.stringify(this.formofdatos.value, null, 2));
   }
 
