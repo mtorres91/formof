@@ -118,7 +118,7 @@ optionslive: Array<any> = [
     }
     console.log(user);
     console.log("mandado correo");
-    this.http.post('https://sendemail-of.netlify.app/envio',user).subscribe(
+    this.http.post('https://teal-pasca-e08b7d.netlify.app/sendmail',user).subscribe(
       resp=>{
         console.log("entro");
       console.log(resp);
