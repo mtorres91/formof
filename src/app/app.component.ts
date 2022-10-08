@@ -20,10 +20,17 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent {
 
+
+
   emailid = '';
 
 
   title = 'formof';
+
+  email= "";
+  name  = "";
+  message = "";
+  endpoint = "";
 
 
 
@@ -102,6 +109,13 @@ optionslive: Array<any> = [
 
 
   ngOnInit(): void {
+
+    this.email = "mata9125@gmail.com";
+    this.name = "Hayden Pierce";
+    this.message = "Hello, this is Hayden.";
+
+    //Start php via the built in server: $ php -S localhost:8000
+    this.endpoint = "https://www.oportunidadfinanzas.com.mx/php/enviar.php";
 
     //formof//
     this.formof = this.formBuilder.group(
@@ -243,6 +257,21 @@ optionslive: Array<any> = [
   onReset(): void {
     this.submitted = false;
     this.form.reset();
+  }
+
+  sendEmail(){
+    let postVars = {
+      email : this.email,
+      name : this.name,
+      message : this.message
+    };
+
+    //You may also want to check the response. But again, let's keep it simple.
+    this.http.post(this.endpoint, postVars)
+        .subscribe(
+            response => console.log(response),
+            response => console.log(response)
+        )
   }
 
 }
