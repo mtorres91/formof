@@ -115,7 +115,7 @@ optionslive: Array<any> = [
     this.message = "Hello, this is Hayden.";
 
     //Start php via the built in server: $ php -S localhost:8000
-    this.endpoint = "https://www.oportunidadfinanzas.com.mx/php/enviar.php";
+    this.endpoint = "../app/enviar.php";
 
     //formof//
     this.formof = this.formBuilder.group(
