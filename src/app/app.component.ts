@@ -99,9 +99,7 @@ optionslive: Array<any> = [
     }
     console.log(params);
     console.log("mandado correo");
-    this.http.post('./utils/validation/enviar.php',params,{
-      headers : {
-          'Content-Type' : 'application/x-www-form-urlencoded; '}}
+    this.http.post('./utils/validation/enviar.php',params
       ).subscribe(resp=>{
       console.log(resp);
     })
