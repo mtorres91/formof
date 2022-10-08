@@ -94,7 +94,7 @@ optionslive: Array<any> = [
     console.log("mandado correo");
     this.http.post('https://sendemail-of.netlify.app/envio',params,{
       headers : {
-          'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'}}
+          'Content-Type' : 'application/x-www-form-urlencoded; '}}
       ).subscribe(resp=>{
       console.log(resp);
     })
