@@ -90,9 +90,10 @@ optionslive: Array<any> = [
       asunto:this.formofdatos.value.celular,
       mensaje:(this.formofdatos.value.nombre+" "+this.formof.value.prestamo)
     }
-    console.log(params)
+    console.log(params);
+    console.log("mandado correo");
     this.http.post('https://sendemail-of.netlify.app/envio',params).subscribe(resp=>{
-      console.log(resp)
+      console.log(resp);
     })
   }
 
