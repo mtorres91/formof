@@ -8,7 +8,7 @@ import {
 } from '@angular/forms';
 import Validation from './utils/validation';
 import { HttpClient } from '@angular/common/http';
-   
+
 
 
 
@@ -22,7 +22,7 @@ export class AppComponent {
 
   emailid = '';
 
-  
+
   title = 'formof';
 
 
@@ -35,7 +35,7 @@ export class AppComponent {
   public show_dialogfelicidades : boolean = false;
 
 
-  
+
 options: Array<any> = [
     { name: 'Si', value: 'Si' },
     { name: 'No', value: 'No' }
@@ -59,7 +59,7 @@ optionslive: Array<any> = [
     atrasos: new FormControl('')
   });
 
-  
+
   formofdatos: FormGroup = new FormGroup({
     nombre: new FormControl(''),
     celular: new FormControl(''),
@@ -76,7 +76,7 @@ optionslive: Array<any> = [
     acceptTerms: new FormControl(false),
   });
 
-  
+
   submitted = false;
 
   constructor(private formBuilder: FormBuilder, private http: HttpClient) {
@@ -92,7 +92,10 @@ optionslive: Array<any> = [
     }
     console.log(params);
     console.log("mandado correo");
-    this.http.post('https://sendemail-of.netlify.app/envio',params).subscribe(resp=>{
+    this.http.post('https://sendemail-of.netlify.app/envio',params,{
+      headers : {
+          'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'}}
+      ).subscribe(resp=>{
       console.log(resp);
     })
   }
@@ -114,9 +117,9 @@ optionslive: Array<any> = [
     );
 
     //formofdatos//
-    
 
-    
+
+
     this.formofdatos = this.formBuilder.group(
       {
         nombre: ['', Validators.required],
@@ -196,7 +199,7 @@ optionslive: Array<any> = [
     this.submitted = true;
 
     if (this.formof.invalid) {
-      
+
       return;
     }
     this.show_dialog = !this.show_dialog;
@@ -212,7 +215,7 @@ optionslive: Array<any> = [
     if(suma<8000 || atr == 'Si'){
 
       this.show_dialog1 = !this.show_dialog1;
-      
+
     console.log("pedir mas informes");
     }else{
       this.show_dialogfelicidades = !this.show_dialogfelicidades;
@@ -229,7 +232,7 @@ optionslive: Array<any> = [
     if (this.formofdatos.invalid) {
       return;
     }
-    
+
     this.show_dialog2 = !this.show_dialog2;
     this.show_dialog3 = !this.show_dialog3;
 
@@ -241,7 +244,7 @@ optionslive: Array<any> = [
     this.submitted = false;
     this.form.reset();
   }
-  
+
 }
 export class CardSubtitleExample {
   longText = `The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog
