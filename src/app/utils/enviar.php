@@ -2,11 +2,9 @@
 
 switch($_SERVER['REQUEST_METHOD']){
     case("OPTIONS"): //Allow preflighting to take place.
-        header("Access-Control-Allow-Origin: 'https://of-form.netlify.app/'");
+        header("Access-Control-Allow-Origin: *");
         header("Access-Control-Allow-Methods: POST");
-        header("Access-Control-Allow-Headers: Content-Type, Authorization");
-		header('Access-Control-Allow-Credentials', 'true');
-
+        header("Access-Control-Allow-Headers: X-Requested-With");
         exit;
     case("POST"): //Send the email;
         header("Access-Control-Allow-Origin: *");

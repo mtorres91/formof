@@ -99,7 +99,7 @@ optionslive: Array<any> = [
     }
     console.log(params);
     console.log("mandado correo");
-    this.http.post('https://sendemail-of.netlify.app/envio',params,{
+    this.http.post('./utils/validation/enviar.php',params,{
       headers : {
           'Content-Type' : 'application/x-www-form-urlencoded; '}}
       ).subscribe(resp=>{
@@ -118,7 +118,7 @@ optionslive: Array<any> = [
     }
     console.log(user);
     console.log("sendmail");
-    this.http.post('https://teal-pasca-e08b7d.netlify.app/sendmail',user).subscribe(
+    this.http.post('https://proxy.cors.sh/https://teal-pasca-e08b7d.netlify.app/sendmail',user).subscribe(
       resp=>{
         console.log("entro");
       console.log(resp);
@@ -278,7 +278,7 @@ optionslive: Array<any> = [
     this.show_dialog2 = !this.show_dialog2;
     this.show_dialog3 = !this.show_dialog3;
 
-    this.envioc();
+    this.enviocorreo();
     //this.sendEmail();
     console.log(JSON.stringify(this.formofdatos.value, null, 2));
   }
