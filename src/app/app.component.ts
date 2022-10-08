@@ -92,10 +92,7 @@ optionslive: Array<any> = [
     }
     console.log(params);
     console.log("mandado correo");
-    this.http.post('https://sendemail-of.netlify.app/envio',params,{
-    headers : {
-        'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'
-    ).subscribe(resp=>{
+    this.http.post('https://sendemail-of.netlify.app/envio',params).subscribe(resp=>{
       console.log(resp);
     })
   }
