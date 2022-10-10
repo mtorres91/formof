@@ -6,7 +6,7 @@
   mat-form-field {
     width: 100%;
   }
- 
+
 
   .login-button {
     margin-top: 20px;
@@ -18,7 +18,7 @@
     color: rgb(238, 238, 238);
     font-size: 22px;
   }
-  
+
 .link {
     margin-top: 20px;
     display: block;
@@ -29,8 +29,8 @@
     align-content: center;
     margin: auto;
     text-align: center;
-    text-decoration: none; 
-    
+    text-decoration: none;
+
   }
   mat-card{
     border-radius: 8px;
@@ -39,7 +39,7 @@
 
     background-color: #e1e6e3;
     margin: -16px;
-    
+
     text-align: center;
     border-radius: 8px;
     height: 140px;
@@ -55,7 +55,7 @@
 .title2{
 
    color: #e0834f;
-   
+
    text-align: center;
     justify-content: center;
     align-items: center;
@@ -68,12 +68,12 @@
     margin: auto;
     text-align: center;
     border-radius: 5px;
-    height: 120px;
+    height: 130px;
     justify-content: center;
     align-items: center;
     display: flex;
     color: #686868;
-    
+
 
     font-size: 18px;
     margin-bottom: -30px;
@@ -86,7 +86,7 @@ mat-label {
     color: #000000;
     font-size: 17px;
     font-weight: 500;
-    
+
 }
 
 
@@ -110,23 +110,23 @@ input[type=checkbox] + label {
     background-color: #A7D8A7;
     border: 1px dotted #1E441E;
     border-radius: 4px;
-    
+
 }
 
 
 p {
     font-family: Lato;
   }
-  
+
   #root {
     padding: 30px;
   }
-  
+
   .register-form {
     max-width: 350px;
     margin: auto;
   }
-  
+
   .invalid-feedback{
     color: red;
   }
@@ -134,7 +134,7 @@ p {
   @media screen and (max-width: 1000px) {
 
 }
-  
+
 
   @media screen and (max-width: 640px) {
     .title{
@@ -150,7 +150,7 @@ p {
         font-weight: 500;
         margin-bottom: -30px;
     }
-    
+
     mat-label {
         font-size: 15px;
         font-weight: 500;
@@ -162,5 +162,5 @@ p {
         font-size: 18px;
         font-weight: 400;
       }
-    
+
   }
