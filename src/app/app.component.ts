@@ -7,7 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import Validation from './utils/validation';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
 
@@ -21,6 +21,9 @@ import { HttpClient } from '@angular/common/http';
 export class AppComponent {
 
 
+  private apiurl='/api/filter';
+  private apiurl1='/api/envio';
+  private apiurl3='/api/envio';
 
   emailid = '';
 
@@ -91,16 +94,27 @@ optionslive: Array<any> = [
 
   }
 
+  private createHeaders() {
+    // let headers = HttpHeaders;
+    let headers = new HttpHeaders({
+      'Access-Control-Allow-Origin' : '*'
+    })
+  }
+
   enviocorreo(){
+    var CORREO="From:mario<teatendemosorpotunidad@gmail.com>";
     let params ={
-      email:this.formofdatos.value.email,
-      asunto:this.formofdatos.value.celular,
-      mensaje:(this.formofdatos.value.nombre+" "+this.formof.value.prestamo)
+      email:CORREO,
+      asunto:"Nueva Solicitud PYME",
+      mensaje:("<p style='font-weight:bold;'>Has recibido una nueva solicitud PYME </p></p> <p style='font-weight:bold;'>Nombre</p>"+this.formofdatos.value.nombre+"</p><p style='font-weight:bold;'>Telefono Celular</p>"+this.formofdatos.value.celular+"</p> <p style='font-weight:bold;'>Email</p>"+this.formofdatos.value.email+"</p><p style='font-weight:bold;'>Monto</p>"+this.formof.value.prestamo+"</p><p style='font-weight:bold;'>Ingresos Negocio</p>"+this.formof.value.ingreso+
+      " <p style='font-weight:bold;'>Gastos Familiares</p>"+this.formof.value.gastos+" <p style='font-weight:bold;'>Atrasos en otro Prestamo</p>"+this.formof.value.atrasos)
     }
+    ///let headers = new HttpHeaders({
+    //  'Access-Control-Allow-Origin' : '*'
+    //})
     console.log(params);
     console.log("mandado correo");
-    this.http.post('./utils/validation/enviar.php',params
-      ).subscribe(resp=>{
+    this.http.post(this.apiurl3, params).subscribe(resp=>{
       console.log(resp);
     })
 
@@ -276,10 +290,15 @@ optionslive: Array<any> = [
     this.show_dialog2 = !this.show_dialog2;
     this.show_dialog3 = !this.show_dialog3;
 
+    this.http.get(this.apiurl).subscribe(resp=>{
+    console.log(resp);
+  })
+
     this.enviocorreo();
     //this.sendEmail();
     console.log(JSON.stringify(this.formofdatos.value, null, 2));
   }
+
 
   onReset(): void {
     this.submitted = false;

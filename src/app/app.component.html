@@ -8,7 +8,7 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
 <style>
- 
+
 
   .toolbar {
     position: absolute;
@@ -38,7 +38,7 @@
     flex-direction: column;
     align-items: center;
     height: 500px;
-    
+
   }
 
 
@@ -103,7 +103,7 @@
 
     src="assets/img/of-logo.png"
   />
-    
+
 </div>
 
 <div class="content" role="main" >
@@ -114,11 +114,11 @@
     <mat-card-subtitle class="subtitle">Responde estas preguntas para ayudarnos a determinar las ofertas de préstamos que te corresponden.</mat-card-subtitle>
     <mat-card-content>
         <form [formGroup]="formof" (ngSubmit)="onSubmit2()" >
-          
+
         <mat-label>¿Cuento con al menos 25 años de edad?</mat-label>
-        <p>          
+        <p>
           <div class="example-section">
-            <mat-radio-group formControlName="mayor" 
+            <mat-radio-group formControlName="mayor"
              aria-labelledby="example-radio-group-label" class="example-radio-group">
              <mat-radio-button class="example-radio-button"  color="warn"
               *ngFor="let country of options" [value]="country.name" (change)="changemayor($event)">
@@ -128,7 +128,7 @@
             <div *ngIf="formof.value['mayor'] ==='No'" class="invalid-feedback">Actualmente para el producto PYME es necesario que el cliente cuente con al menos 25 años</div>
             <div *ngIf="submitted && fom['mayor'].errors" class="invalid-feedback">
               <div *ngIf="fom['mayor'].errors['required']">Es requerido</div>
-              
+
             </div>
          </div>
          <mat-label>¿Soy propietario de un negocio con 3 años de operación?</mat-label>
@@ -136,7 +136,7 @@
           <div class="example-section">
             <mat-radio-group formControlName="propietario" color="warn"
              aria-labelledby="example-radio-group-label" class="example-radio-group">
-             <mat-radio-button class="example-radio-button" 
+             <mat-radio-button class="example-radio-button"
               *ngFor="let country of options" [value]="country.name" (change)="changepropietario($event)">
                   {{ country.name }}
              </mat-radio-button>
@@ -151,13 +151,13 @@
           <div class="example-section">
             <mat-radio-group formControlName="ubicacion" color="warn"
              aria-labelledby="example-radio-group-label" class="example-radio-group">
-             <mat-radio-button class="example-radio-button" 
+             <mat-radio-button class="example-radio-button"
               *ngFor="let country of optionslive" [value]="country.value" (change)="changeubicacion($event)">
                   {{ country.name }}
              </mat-radio-button>
             </mat-radio-group>
             <div *ngIf="formof.value['ubicacion'] ==='OTRO'" class="invalid-feedback">Actualmente para solo tenemos presencia en el Area Metropolitana de CDMX y Guadalajara</div>
-           
+
             <div *ngIf="submitted && fom['ubicacion'].errors" class="invalid-feedback">
               <div *ngIf="fom['ubicacion'].errors['required']">Es requerido</div>
             </div>
@@ -166,25 +166,25 @@
 
          <div class="form-group">
          <mat-label>¿Cuanto es el prestamo que necesita?</mat-label>
-        
+
           <mat-form-field class="example-full-width" appearance="fill">
-            <input matInput placeholder="Ingresar monto" 
+            <input matInput placeholder="Ingresar monto"
                    type="number"
                    formControlName="prestamo"
                    [ngClass]="{ 'is-invalid': submitted && fom['prestamo'].errors }"
                    />
                    <span matPrefix>$&nbsp;</span>
-                   
+
           </mat-form-field>
-          
+
           <div *ngIf="submitted && fom['prestamo'].errors" class="invalid-feedback">
             <div *ngIf="fom['prestamo'].errors['required']">Es requerido</div>
           </div>
         </div>
         <mat-label>¿Cuál es tu ingreso mensual promedio después de gastos del negocio?</mat-label>
-       
-        <mat-form-field class="example-full-width" appearance="fill">          
-          <input matInput placeholder="Ingresar monto" 
+
+        <mat-form-field class="example-full-width" appearance="fill">
+          <input matInput placeholder="Ingresar monto"
           type="number"
           formControlName="ingreso"
           id="ing"
@@ -197,10 +197,10 @@
         </div>
 
         <mat-label>¿En promedio, cuáles son los gastos mensuales de tus necesidades y las de tu familia?(es decir, servicios públicos, alimentos, educación, cuidado de niños, etc.)</mat-label>
-       
-        <mat-form-field class="example-full-width" appearance="fill">          
-          <input matInput placeholder="Ingresar monto" 
-          type="number" 
+
+        <mat-form-field class="example-full-width" appearance="fill">
+          <input matInput placeholder="Ingresar monto"
+          type="number"
           formControlName="gastos"
           id="gas"
           [ngClass]="{ 'is-invalid': submitted && fom['gastos'].errors }"/>
@@ -210,12 +210,12 @@
           <div *ngIf="fom['gastos'].errors['required']">Es requerido</div>
         </div>
 
-        
+
         <mat-label>¿Tiene algún préstamo en atrasos a un banco u otra institución financiera?</mat-label>
         <div class="example-section">
           <mat-radio-group   formControlName="atrasos" color="warn"
            aria-labelledby="example-radio-group-label" class="example-radio-group">
-           <mat-radio-button class="example-radio-button" 
+           <mat-radio-button class="example-radio-button"
             *ngFor="let country of options" [value]="country.value" (change)="changeatrasos($event)" >
                 {{ country.name }}
            </mat-radio-button>
@@ -224,7 +224,7 @@
               <div *ngIf="fom['atrasos'].errors['required']">Es requerido</div>
             </div>
        </div>
-       
+
         <button
           mat-raised-button
           class="login-button"
@@ -234,14 +234,14 @@
         <div >
           <a  class="link" style="color: #e0834f" href="https://www.oportunidadfinanzas.com.mx/mejora-tu-negocio">DE VUELTA A INICIO</a>
         </div>
-        
-        
+
+
       </form>
     </mat-card-content>
   </mat-card>
   <br>
 
-  <mat-card  *ngIf="show_dialog2" >
+  <mat-card   >
     <mat-card-title *ngIf="show_dialog1" class="title">Según las respuestas que ingresaste, necesitamos más información.</mat-card-title>
     <mat-card-title *ngIf="show_dialogfelicidades" class="title">🎉Felicidades usted ha precalificado a nuestro préstamo!!</mat-card-title>
     <mat-card-subtitle class="subtitle">Para hablar sobre su proceso de solicitud y el monto específico del préstamo, es necesario que deje su información a continuación y nos contactaremos con usted.</mat-card-subtitle>
@@ -250,24 +250,24 @@
 
           <div class="form-group">
             <mat-label>Nombre</mat-label>
-           
+
              <mat-form-field class="example-full-width" appearance="fill">
-               <input matInput placeholder="Ingresar nombre" 
+               <input matInput placeholder="Ingresar nombre"
                       type="name"
                       formControlName="nombre"
                       [ngClass]="{ 'is-invalid': submitted && fomdatos['nombre'].errors }"
                       />
-                      
+
              </mat-form-field>
              <div *ngIf="submitted && fomdatos['nombre'].errors" class="invalid-feedback">
                <div *ngIf="fomdatos['nombre'].errors['required']">Nombre es requerido</div>
              </div>
            </div>
-          
+
         <mat-label>Telefono celular</mat-label>
-       
-        <mat-form-field class="example-full-width" appearance="fill">          
-          <input matInput placeholder="Ingresar celular" 
+
+        <mat-form-field class="example-full-width" appearance="fill">
+          <input matInput placeholder="Ingresar celular"
           type="text"
           maxlength="10"
           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
@@ -279,15 +279,15 @@
         <div *ngIf="submitted && fomdatos['celular'].errors" class="invalid-feedback">
           <div *ngIf="fomdatos['celular'].errors['required']">Telefono es requerido</div>
           <div *ngIf="fomdatos['celular'].errors['pattern']">Ingrese el número de teléfono móvil a 10 dígitos.</div>
-          
-            
+
+
         </div>
 
         <mat-label>Email</mat-label>
-       
-        <mat-form-field class="example-full-width" appearance="fill">          
-          <input matInput placeholder="Ingresar monto" 
-          type="name" 
+
+        <mat-form-field class="example-full-width" appearance="fill">
+          <input matInput placeholder="Ingresar monto"
+          type="name"
           formControlName="email"
           [ngClass]="{ 'is-invalid': submitted && fomdatos['email'].errors }"/>
           <mat-icon matPrefix>email</mat-icon>
@@ -297,7 +297,7 @@
           <div *ngIf="fomdatos['email'].errors['email']">Email es invalido</div>
         </div>
 
-       
+
         <button
           mat-raised-button
           class="login-button"
@@ -307,8 +307,8 @@
         <div >
           <a  class="link" style="color: #e0834f" href="https://www.oportunidadfinanzas.com.mx/mejora-tu-negocio">DE VUELTA A INICIO</a>
         </div>
-        
-        
+
+
       </form>
     </mat-card-content>
   </mat-card>
@@ -317,23 +317,23 @@
     <mat-card-title class="title2">¡Gracias!</mat-card-title>
     <mat-card-subtitle class="subtitle">Uno de los miembros de nuestro equipo se comunicará contigo pronto.</mat-card-subtitle>
     <mat-card-content>
-       
+
       <a  class="link" style="color: #e0834f" href="https://www.oportunidadfinanzas.com.mx/mejora-tu-negocio">
-           
+
         <button
           mat-raised-button
           class="login-button">
           De vuelta a inicio
         </button></a>
         <div >
-        </div>  
-        
+        </div>
+
     </mat-card-content>
   </mat-card>
 
-  
 
-  
+
+
 
   <svg id="clouds" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677" viewBox="0 0 2611.084 485.677">
     <title>Gray Clouds Background</title>
