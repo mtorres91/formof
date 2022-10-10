@@ -1,6 +1,6 @@
 {
   "/api/*": {
-  "target": "https://www.your-web.com/api",
+  "target": "https://murmuring-river-91123.herokuapp.com/api",
   "pathRewrite": { "^/api": "" },
   "secure": false,
   "changeOrigin": true,

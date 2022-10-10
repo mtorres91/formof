@@ -61,18 +61,23 @@
           },
           "defaultConfiguration": "production"
         },
+
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "formof:build",
+            "proxyConfig": "src/proxy-local.conf.json"
+          },
           "configurations": {
             "production": {
-              "browserTarget": "formof:build:production"
-            },
-            "development": {
-              "browserTarget": "formof:build:development"
+              "browserTarget": "formof:build:production",
+              "proxyConfig": "src/proxy-prod.conf.json"
             }
-          },
-          "defaultConfiguration": "development"
+          }
         },
+
+
+
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
