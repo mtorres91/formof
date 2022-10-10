@@ -241,7 +241,7 @@
   </mat-card>
   <br>
 
-  <mat-card   >
+  <mat-card   *ngIf="show_dialog2">
     <mat-card-title *ngIf="show_dialog1" class="title">Según las respuestas que ingresaste, necesitamos más información.</mat-card-title>
     <mat-card-title *ngIf="show_dialogfelicidades" class="title">🎉Felicidades usted ha precalificado a nuestro préstamo!!</mat-card-title>
     <mat-card-subtitle class="subtitle">Para hablar sobre su proceso de solicitud y el monto específico del préstamo, es necesario que deje su información a continuación y nos contactaremos con usted.</mat-card-subtitle>

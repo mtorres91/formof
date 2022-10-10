@@ -290,9 +290,9 @@ optionslive: Array<any> = [
     this.show_dialog2 = !this.show_dialog2;
     this.show_dialog3 = !this.show_dialog3;
 
-    this.http.get(this.apiurl).subscribe(resp=>{
-    console.log(resp);
-  })
+  //  this.http.get(this.apiurl).subscribe(resp=>{
+   // console.log(resp);
+  //})
 
     this.enviocorreo();
     //this.sendEmail();
