@@ -23,6 +23,7 @@ export class AppComponent {
   private apiurl='/api/filter';
   private apiurl1='/api/envio';
   private apiurl3='https://murmuring-river-91123.herokuapp.com/api/envio';
+  
 
   emailid = '';
 
@@ -454,6 +455,9 @@ const el2boton = <HTMLInputElement> document.getElementById("solcalificado");
   }
 
   onSubmit2datos(): void {
+
+
+
     const el = <HTMLInputElement> document.getElementById("m2");
     el.style.display='none';
 
@@ -472,6 +476,7 @@ const el2boton = <HTMLInputElement> document.getElementById("solcalificado");
    // console.log(resp);
   //})
 
+  
     this.enviocorreo();
     //this.sendEmail();
     console.log(JSON.stringify(this.formofdatos.value, null, 2));
@@ -482,6 +487,9 @@ const el2boton = <HTMLInputElement> document.getElementById("solcalificado");
     this.submitted = false;
     this.form.reset();
   }
+
+
+  
 
   sendEmail(){
     let postVars = {
