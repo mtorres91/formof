@@ -6,7 +6,7 @@
 <!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
 <!-- * * * * * * * to get started with your project! * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
+<script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
 <style>
 
 
@@ -94,6 +94,7 @@
             accent-color: red;
         }
 </style>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 <!-- Toolbar -->
 <div class="toolbar" role="banner">
@@ -109,7 +110,7 @@
 <div class="content" role="main" >
 
   <!-- Highlight Card -->
-  <mat-card *ngIf="show_dialog">
+  <mat-card id="i" >
     <mat-card-title class="title">Descubre tu oferta en un solo paso</mat-card-title>
     <mat-card-subtitle class="subtitle">Responde estas preguntas para ayudarnos a determinar las ofertas de préstamos que te corresponden.</mat-card-subtitle>
     <mat-card-content>
@@ -168,9 +169,10 @@
          <mat-label>¿Cuanto es el prestamo que necesita?</mat-label>
 
           <mat-form-field class="example-full-width" appearance="fill">
-            <input matInput placeholder="Ingresar monto"
+            <input matInput placeholder="Min $50 000 Max $500 000" 
                    type="number"
                    formControlName="prestamo"
+                   id="pre"
                    [ngClass]="{ 'is-invalid': submitted && fom['prestamo'].errors }"
                    />
                    <span matPrefix>$&nbsp;</span>
@@ -179,6 +181,14 @@
 
           <div *ngIf="submitted && fom['prestamo'].errors" class="invalid-feedback">
             <div *ngIf="fom['prestamo'].errors['required']">Es requerido</div>
+          </div>
+          <div *ngIf="fom['prestamo'].errors" class="invalid-feedback">
+            <div *ngIf="fom['prestamo'].errors['min']">
+              Monto minimo $50 000
+            </div>
+            <div *ngIf="fom['prestamo'].errors['max']">
+              Monto maximo $500 000
+            </div>
           </div>
         </div>
         <mat-label>¿Cuál es tu ingreso mensual promedio después de gastos del negocio?</mat-label>
@@ -228,7 +238,7 @@
         <button
           mat-raised-button
           class="login-button"
-          type="submit">
+          type="submit" id="btn">
           Continuar
         </button>
         <div >
@@ -241,11 +251,15 @@
   </mat-card>
   <br>
 
-  <mat-card   *ngIf="show_dialog2">
+  <mat-card  style="display: none" id="m2" >
     <mat-card-title *ngIf="show_dialog1" class="title">Según las respuestas que ingresaste, necesitamos más información.</mat-card-title>
     <mat-card-title *ngIf="show_dialogfelicidades" class="title">🎉Felicidades usted ha precalificado a nuestro préstamo!!</mat-card-title>
     <mat-card-subtitle class="subtitle">Para hablar sobre su proceso de solicitud y el monto específico del préstamo, es necesario que deje su información a continuación y nos contactaremos con usted.</mat-card-subtitle>
     <mat-card-content>
+        <mat-card-title class="sim" id="id0">Simulacion para un crédito de</mat-card-title>
+         <h1 class="mensualidad" id="id01"> A 12 Meses</h1>
+         <h1 class="mensualidad" id="id02"> A 24 Meses</h1>
+    
         <form [formGroup]="formofdatos" (ngSubmit)="onSubmit2datos()" >
 
           <div class="form-group">
@@ -313,10 +327,27 @@
     </mat-card-content>
   </mat-card>
 
-  <mat-card  *ngIf="show_dialog3" class="cardgracias">
+  <mat-card   id="m3" class="cardgracias" style="display: none">
     <mat-card-title class="title2">¡Gracias!</mat-card-title>
     <mat-card-subtitle class="subtitle">Uno de los miembros de nuestro equipo se comunicará contigo pronto.</mat-card-subtitle>
     <mat-card-content>
+
+
+      <a  class="link" style="color: #e0834f" href="https://api.whatsapp.com/send?phone=3314101956&text=Hola%2C%20Nececito%20mas%20informacion%21" target="_blank">
+          
+        <button mat-raised-button class="login-button">
+          <img
+            src="assets/img/whatsapp-24.png"
+          /> Seguimiento por whatsapp
+        </button></a>
+
+        <a  class="link" style="color: #e0834f" href="https://solicitud.oportunidadfinanzas.com.mx/landing" target="_blank">         
+
+          <button
+            mat-raised-button
+            class="login-button" style="display: none" id="solcalificado">
+            Tramitar Solicitud en Linea
+          </button></a>
 
       <a  class="link" style="color: #e0834f" href="https://www.oportunidadfinanzas.com.mx/mejora-tu-negocio">
 

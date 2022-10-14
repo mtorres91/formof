@@ -12,7 +12,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -158,7 +157,7 @@ optionslive: Array<any> = [
     //formof//
     this.formof = this.formBuilder.group(
       {
-        prestamo: ['', Validators.required],
+        prestamo: ['', [Validators.required,Validators.max(500000), Validators.min(50000)]],
         ingreso: ['', Validators.required],
         gastos: ['', Validators.required],
         mayor: ['', [Validators.required]],
@@ -222,17 +221,100 @@ optionslive: Array<any> = [
     return this.formofdatos.controls;
   }
 
+
+  
   changemayor(event: any) {
+    const btn = document.getElementById('btn') as HTMLButtonElement | null;
+    
+
+    if(event.value === "Si"){
+
+      btn?.removeAttribute('disabled');
+      btn?.setAttribute('style', 'opacity:1;');
+      if(this.formof.value.propietario==="No"){
+        btn?.setAttribute('disabled', '');
+        //btn?.setAttribute('style', 'background-color: red;');
+        btn?.setAttribute('style', 'opacity:0.2;');
+          
+        }
+        if(this.formof.value.ubicacion==="OTRO"){
+          btn?.setAttribute('disabled', '');
+          //btn?.setAttribute('style', 'background-color: red;');
+          btn?.setAttribute('style', 'opacity:0.2;');
+            
+          }
+    }
+    if(event.value === "No"){
+
+      btn?.setAttribute('disabled', '');
+      //btn?.setAttribute('style', 'background-color: red;');
+      btn?.setAttribute('style', 'opacity:0.2;');
+      
+    }
     console.log(event.value);
   }
 
   changepropietario(event: any) {
+    const btn = document.getElementById('btn') as HTMLButtonElement | null;
+    if(event.value === "Si"){
+        btn?.removeAttribute('disabled');
+        btn?.setAttribute('style', 'opacity:1;');
+      if(this.formof.value.mayor==="No"){
+      btn?.setAttribute('disabled', '');
+      //btn?.setAttribute('style', 'background-color: red;');
+      btn?.setAttribute('style', 'opacity:0.2;');
+        
+      }
+      if(this.formof.value.ubicacion==="OTRO"){
+        btn?.setAttribute('disabled', '');
+        //btn?.setAttribute('style', 'background-color: red;');
+        btn?.setAttribute('style', 'opacity:0.2;');
+          
+        }
+      
+    }
+    if(event.value === "No"){
+
+      btn?.setAttribute('disabled', '');
+      //btn?.setAttribute('style', 'background-color: red;');
+      btn?.setAttribute('style', 'opacity:0.2;');
+      
+    }
     console.log(event.value);
   }
 
   changeubicacion(event: any) {
+    const btn = document.getElementById('btn') as HTMLButtonElement | null;
+    
+
+    if(event.value === "GDL" || event.value === "CDMX"){
+
+      btn?.removeAttribute('disabled');
+      btn?.setAttribute('style', 'opacity:1;');
+      if(this.formof.value.mayor==="No"){
+        btn?.setAttribute('disabled', '');
+        //btn?.setAttribute('style', 'background-color: red;');
+        btn?.setAttribute('style', 'opacity:0.2;');
+          
+        }
+        if(this.formof.value.propietario==="No"){
+          btn?.setAttribute('disabled', '');
+          //btn?.setAttribute('style', 'background-color: red;');
+          btn?.setAttribute('style', 'opacity:0.2;');
+            
+          }
+    }
+    if(event.value === "OTRO"){
+
+      btn?.setAttribute('disabled', '');
+      //btn?.setAttribute('style', 'background-color: red;');
+      btn?.setAttribute('style', 'opacity:0.2;');
+      
+    }
     console.log(event.value);
+
   }
+
   changeatrasos(event: any) {
     console.log(event.value);
     this.emailid = event.emailid;
@@ -262,26 +344,122 @@ optionslive: Array<any> = [
 
     var firstRow = Number((<HTMLInputElement> document.getElementById("ing")).value);
     var Row =Number( (<HTMLInputElement> document.getElementById("gas")).value);
+    var loanAmount =Number( (<HTMLInputElement> document.getElementById("pre")).value);
     var atr = this.formof.get('atrasos')?.value;
 
     var suma = firstRow-Row;
 
+
+  
+  /*
+  
+  
+  const calculatedPayment = PMT(Tas,term,(-loanAmount),0,0);
+
+  // Check for NAN (bad term, etc)
+  const cpNotNaN = isNaN(calculatedPayment) ? 0 : calculatedPayment;
+
+  // Convert to 2 Decimal Places
+  const cpConverted = (Math.round(cpNotNaN * 100) / 100).toFixed(2);
+
+  // Add Commas to Number
+  const payment = cpConverted.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  console.log("pago a 12 meses: "+payment);
+
+
+  const calculatedPayment24 = PMT(Tas,term24,(-loanAmount),0,0);
+  
+
+  // Check for NAN (bad term, etc)
+  const cpNotNaN24 = isNaN(calculatedPayment24) ? 0 : calculatedPayment24;
+
+  // Convert to 2 Decimal Places
+  const cpConverted24 = (Math.round(cpNotNaN24 * 100) / 100).toFixed(2);
+
+  // Add Commas to Number
+  const payment24 = cpConverted24.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  console.log("pago a 24 meses: "+payment24);
+  */
+const el2boton = <HTMLInputElement> document.getElementById("solcalificado");
+
     if(suma<8000 || atr == 'Si'){
 
       this.show_dialog1 = !this.show_dialog1;
+      el2boton.style.display='none';
 
     console.log("pedir mas informes");
     }else{
       this.show_dialogfelicidades = !this.show_dialogfelicidades;
+      
+      el2boton.style.display='block';
       console.log("calificado");
     }
+    const el = <HTMLInputElement> document.getElementById("i");
+    el.style.display='none';
+
+    const el2 = <HTMLInputElement> document.getElementById("m2");
+    el2.style.display='block';
+    var loanAmount =Number( (<HTMLInputElement> document.getElementById("pre")).value);
+
+    const air     = .6; // Annual Interest Rate
+    const iva     = .16; // Initial Value Added Tax
+    var term=12;
+    var term24=24;
+  
+  
+    var Tas = (.050*1.16);
+  
+    // calculate Payment OF
+    if(loanAmount<=80000){
+      Tas=(.050*1.16);
+    }
+    if(loanAmount>80000){
+      
+      Tas=(.049*1.16);
+    }
+    if(loanAmount>120000){
+      Tas=(.047*1.16);
+    }
+    if(loanAmount>200000){
+      Tas=(.045*1.16);
+    }  
+    if(loanAmount>300000){
+      Tas=(.040*1.16);
+    }  
+  
+  
+    const elementm = <HTMLInputElement> document.getElementById("id0");
+    const paymentmount = loanAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    elementm.innerHTML = "Simulacion para un crédito de $"+paymentmount;
+  
+  
+    const calculatedPayment= ((loanAmount*Tas)/(1-Math.pow((1+Tas),-term)));
+    const cpConverted = (Math.round(calculatedPayment * 100) / 100).toFixed(2);
+    const payment = cpConverted.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    console.log("pago a 12 meses: "+payment);
+    const element = <HTMLInputElement> document.getElementById("id01");
+    element.innerHTML = "Pago Mensual: $"+payment+" a 12 meses";
+  
+    const calculatedPayment24= ((loanAmount*Tas)/(1-Math.pow((1+Tas),-term24)));
+    const cpConverted24 = (Math.round(calculatedPayment24 * 100) / 100).toFixed(2);
+    const payment24 = cpConverted24.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    console.log("pago a 24 meses: "+payment24);
+    const element24 = <HTMLInputElement> document.getElementById("id02");
+    element24.innerHTML = "Pago Mensual: $"+payment24+" a 24 meses";
+    this.submitted = true;
 
     console.log(suma);
     console.log(JSON.stringify(this.formof.value, null, 2));
+
   }
 
   onSubmit2datos(): void {
-    this.submitted = true;
+    const el = <HTMLInputElement> document.getElementById("m2");
+    el.style.display='none';
+
+    const el2 = <HTMLInputElement> document.getElementById("m3");
+    el2.style.display='block';
+    
 
     if (this.formofdatos.invalid) {
       return;
@@ -321,6 +499,10 @@ optionslive: Array<any> = [
   }
 
 }
+
+
+
+
 export class CardSubtitleExample {
   longText = `The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog
   from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was

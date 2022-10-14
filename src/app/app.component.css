@@ -11,7 +11,7 @@
   .login-button {
     margin-top: 20px;
     display: block;
-    width: 50%;
+    width: 70%;
     height: 70px;
     margin: 20px auto;
     background-color: #e0834f;
@@ -77,6 +77,28 @@
 
     font-size: 18px;
     margin-bottom: -30px;
+
+}
+
+
+
+.mensualidad{
+
+  margin: auto;
+  display: flex;
+  color: #e0834f;
+  font-size: 14px;
+  margin-top: 10px;
+
+}
+.sim{
+
+  margin: auto;
+  border-radius: 5px;
+  display: flex;
+  color: #e0834f;
+  font-size: 22px;
+  font-weight:500;
 
 }
 mat-label {
