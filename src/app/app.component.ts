@@ -102,7 +102,16 @@ optionslive: Array<any> = [
   }
 
   enviocorreo(){
-    var CORREO="From:mario<teatendemosorpotunidad@gmail.com>";
+    var CORREO="";
+     if(this.formof.value.ubicacion === "GDL"){
+      var CORREO="From:Shernandez<shernandez.of@gmail.com>";
+     }
+     if(this.formof.value.ubicacion === "CDMX"){
+      //var CORREO="From:mario<teatendemosorpotunidad@gmail.com>";
+      var CORREO="From:Agallinate<agallinateoportunidad@gmail.com>";
+     }
+
+
     let params ={
       email:CORREO,
       asunto:"Nueva Solicitud PYME",
@@ -348,6 +357,8 @@ optionslive: Array<any> = [
     var loanAmount =Number( (<HTMLInputElement> document.getElementById("pre")).value);
     var atr = this.formof.get('atrasos')?.value;
 
+    var zona = this.formof.get('ubicacion')?.value;
+
     var suma = firstRow-Row;
 
 
@@ -383,10 +394,26 @@ optionslive: Array<any> = [
   */
 const el2boton = <HTMLInputElement> document.getElementById("solcalificado");
 
+const wgdlpre = <HTMLInputElement> document.getElementById("wgdlpre");
+const wcdmxpre = <HTMLInputElement> document.getElementById("wcdmxpre");
+
+const wgdl = <HTMLInputElement> document.getElementById("wgdl");
+const wcdmx = <HTMLInputElement> document.getElementById("wcdmx");
+
     if(suma<8000 || atr == 'Si'){
 
       this.show_dialog1 = !this.show_dialog1;
       el2boton.style.display='none';
+
+      //no precalificado, mostrar botones formulario
+      if(zona == 'GDL'){
+        wgdl.style.display='block';
+      }
+      if(zona == 'CDMX'){
+        wcdmx.style.display='block';
+      }
+      
+      
 
     console.log("pedir mas informes");
     }else{
@@ -394,6 +421,13 @@ const el2boton = <HTMLInputElement> document.getElementById("solcalificado");
       
       el2boton.style.display='block';
       console.log("calificado");
+      if(zona == 'GDL'){
+        wgdlpre.style.display='block';
+      }
+      if(zona == 'CDMX'){
+        wcdmxpre.style.display='block';
+      }
+      
     }
     const el = <HTMLInputElement> document.getElementById("i");
     el.style.display='none';

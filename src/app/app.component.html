@@ -7,6 +7,15 @@
 <!-- * * * * * * * to get started with your project! * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-27ZYGQ165G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-27ZYGQ165G');
+</script>
 <style>
 
 
@@ -94,7 +103,8 @@
             accent-color: red;
         }
 </style>
-<link rel="icon" type="image/x-icon" href="./assets/img/ic_launcher.png">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="icon" type="image/x-icon" href="assets/img/ic_launcher.png">
 
 <!-- Toolbar -->
 <div class="toolbar" role="banner">
@@ -329,17 +339,36 @@
 
   <mat-card   id="m3" class="cardgracias" style="display: none">
     <mat-card-title class="title2">¡Gracias!</mat-card-title>
-    <mat-card-subtitle class="subtitle">Uno de los miembros de nuestro equipo se comunicará contigo pronto.</mat-card-subtitle>
+    <mat-card-subtitle class="subtitle">Uno de los miembros de nuestro equipo se comunicará contigo pronto via celular o whatsapp, o si quieres comunicarte de inmediato manda mensaje via whatsapp</mat-card-subtitle>
     <mat-card-content>
 
-
-      <a  class="link" style="color: #e0834f" href="https://api.whatsapp.com/send?phone=3314101956&text=Hola%2C%20Cliente%20PreCalificado%20Nececito%20mas%20informacion%21" target="_blank">
-          
-        <button mat-raised-button class="login-button">
+      <a   class="link"  style="color: #e0834f" href="https://api.whatsapp.com/send?phone=523314101956&text=Hola%2C%20Cliente%20Formulario%20PreCalificado%20Nececito%20mas%20informacion%21" target="_blank">          
+        <button id="wgdlpre" style="display: none" mat-raised-button class="login-button">
           <img
             src="assets/img/whatsapp-24.png"
-          /> Seguimiento por whatsapp
+          /> Contacto por whatsapp
         </button></a>
+        
+      <a  class="link"  style="color: #e0834f" href="https://api.whatsapp.com/send?phone=525541853346&text=Hola%2C%20Cliente%20Formulario%20PreCalificado%20Nececito%20mas%20informacion%21" target="_blank">          
+        <button id="wcdmxpre" style="display: none" mat-raised-button class="login-button">
+          <img
+            src="assets/img/whatsapp-24.png"
+          /> Contacto por whatsapp
+        </button></a>
+
+        <a   class="link"  style="color: #e0834f" href="https://api.whatsapp.com/send?phone=523314101956&text=Hola%2C%20Cliente%20Formulario%20Nececito%20mas%20informacion%21" target="_blank">          
+          <button id="wgdl" style="display: none" mat-raised-button class="login-button">
+            <img
+              src="assets/img/whatsapp-24.png"
+            /> Contacto por whatsapp
+          </button></a>
+          
+        <a  class="link"  style="color: #e0834f" href="https://api.whatsapp.com/send?phone=525541853346&text=Hola%2C%20Cliente%20Formulario%20Nececito%20mas%20informacion%21" target="_blank">          
+          <button id="wcdmx" style="display: none" mat-raised-button class="login-button">
+            <img
+              src="assets/img/whatsapp-24.png"
+            /> Contacto por whatsapp
+          </button></a>
 
         <a  class="link" style="color: #e0834f" href="https://solicitud.oportunidadfinanzas.com.mx/landing" target="_blank">         
 
