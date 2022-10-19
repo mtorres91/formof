@@ -9,6 +9,8 @@ import {
 import Validation from './utils/validation';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+declare let gtag: Function;
+
 
 
 
