@@ -93,6 +93,7 @@ optionslive: Array<any> = [
 
   constructor(private formBuilder: FormBuilder, private http: HttpClient) {
 
+    
 
   }
 
@@ -102,6 +103,7 @@ optionslive: Array<any> = [
       'Access-Control-Allow-Origin' : '*'
     })
   }
+
 
   enviocorreo(){
     var CORREO="";
@@ -128,10 +130,6 @@ optionslive: Array<any> = [
     this.http.post(this.apiurl3, params).subscribe(resp=>{
       console.log(resp);
     })
-
-
-
-
   }
 
   envioc(){
@@ -221,6 +219,8 @@ optionslive: Array<any> = [
       }
     );
   }
+
+  
 
   get f(): { [key: string]: AbstractControl } {
     return this.form.controls;
