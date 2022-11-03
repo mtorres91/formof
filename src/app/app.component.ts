@@ -108,18 +108,17 @@ optionslive: Array<any> = [
   enviocorreo(){
     var CORREO="";
      if(this.formof.value.ubicacion === "GDL"){
-      var CORREO="From:Shernandez<shernandez.of@gmail.com>";
+      var CORREO="From:mario<teatendemosorpotunidad@gmail.com>";
      }
      if(this.formof.value.ubicacion === "CDMX"){
-      //var CORREO="From:mario<teatendemosorpotunidad@gmail.com>";
-      var CORREO="From:Agallinate<agallinateoportunidad@gmail.com>";
+      var CORREO="From:mario<teatendemosorpotunidad@gmail.com>";
      }
 
 
     let params ={
       email:CORREO,
       asunto:"Nueva Solicitud PYME",
-      mensaje:("<p style='font-weight:bold;'>Has recibido una nueva solicitud PYME </p></p> <p style='font-weight:bold;'>Nombre</p>"+this.formofdatos.value.nombre+"</p><p style='font-weight:bold;'>Telefono Celular</p>"+this.formofdatos.value.celular+"</p> <p style='font-weight:bold;'>Email</p>"+this.formofdatos.value.email+"</p><p style='font-weight:bold;'>Monto</p>"+this.formof.value.prestamo+"</p><p style='font-weight:bold;'>Ingresos Negocio</p>"+this.formof.value.ingreso+
+      mensaje:("<p style='font-weight:bold;'>Has recibido una nueva solicitud PYME "+this.formof.value.ubicacion+"</p></p> <p style='font-weight:bold;'>Nombre</p>"+this.formofdatos.value.nombre+"</p><p style='font-weight:bold;'>Telefono Celular</p>"+this.formofdatos.value.celular+"</p> <p style='font-weight:bold;'>Email</p>"+this.formofdatos.value.email+"</p><p style='font-weight:bold;'>Monto</p>"+this.formof.value.prestamo+"</p><p style='font-weight:bold;'>Ingresos Negocio</p>"+this.formof.value.ingreso+
       " <p style='font-weight:bold;'>Gastos Familiares</p>"+this.formof.value.gastos+" <p style='font-weight:bold;'>Atrasos en otro Prestamo</p>"+this.formof.value.atrasos)
     }
     ///let headers = new HttpHeaders({
