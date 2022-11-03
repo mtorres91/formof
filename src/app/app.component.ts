@@ -108,10 +108,10 @@ optionslive: Array<any> = [
   enviocorreo(){
     var CORREO="";
      if(this.formof.value.ubicacion === "GDL"){
-      var CORREO="From:mario<teatendemosorpotunidad@gmail.com>";
+      var CORREO="From:OF<teatendemos@oportunidadfinanzas.com.mx>";
      }
      if(this.formof.value.ubicacion === "CDMX"){
-      var CORREO="From:mario<teatendemosorpotunidad@gmail.com>";
+      var CORREO="From:OF<teatendemos@oportunidadfinanzas.com.mx>";
      }
 
 
