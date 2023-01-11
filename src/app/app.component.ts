@@ -25,6 +25,7 @@ export class AppComponent {
   private apiurl='/api/filter';
   private apiurl1='/api/envio';
   private apiurl3='https://murmuring-river-91123.herokuapp.com/api/envio';
+  private apiurl2='https://murmuring-river-91123.herokuapp.com/api/envio2';
   
 
   emailid = '';
@@ -125,8 +126,8 @@ optionslive: Array<any> = [
     //  'Access-Control-Allow-Origin' : '*'
     //})
     console.log(params);
-    console.log("mandado correo");
-    this.http.post(this.apiurl3, params).subscribe(resp=>{
+    console.log("mandado correo2");
+    this.http.post(this.apiurl2, params).subscribe(resp=>{
       console.log(resp);
     })
   }
