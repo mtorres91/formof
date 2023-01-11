@@ -341,7 +341,7 @@ optionslive: Array<any> = [
       return;
     }
 
-    console.log(JSON.stringify(this.form.value, null, 2));
+    //console.log(JSON.stringify(this.form.value, null, 2));
   }
 
 
@@ -489,7 +489,7 @@ const wcdmx = <HTMLInputElement> document.getElementById("wcdmx");
     this.submitted = true;
 
     console.log(suma);
-    console.log(JSON.stringify(this.formof.value, null, 2));
+    //console.log(JSON.stringify(this.formof.value, null, 2));
 
   }
 
@@ -518,7 +518,7 @@ const wcdmx = <HTMLInputElement> document.getElementById("wcdmx");
   
     this.enviocorreo();
     //this.sendEmail();
-    console.log(JSON.stringify(this.formofdatos.value, null, 2));
+    //console.log(JSON.stringify(this.formofdatos.value, null, 2));
   }
 
 
