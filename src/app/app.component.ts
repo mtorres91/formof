@@ -128,7 +128,7 @@ optionslive: Array<any> = [
     ///let headers = new HttpHeaders({
     //  'Access-Control-Allow-Origin' : '*'
     //})
-    console.log(params);
+    //console.log(params);
     console.log("mandado correo2");
     this.http.post(this.apiurl2, params).subscribe(resp=>{
       console.log(resp);
