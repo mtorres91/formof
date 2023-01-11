@@ -120,7 +120,9 @@ optionslive: Array<any> = [
       email:CORREO,
       asunto:"Nueva Solicitud PYME",
       mensaje:("<p style='font-weight:bold;'>Has recibido una nueva solicitud PYME "+this.formof.value.ubicacion+"</p></p> <p style='font-weight:bold;'>Nombre</p>"+this.formofdatos.value.nombre+"</p><p style='font-weight:bold;'>Telefono Celular</p>"+this.formofdatos.value.celular+"</p> <p style='font-weight:bold;'>Email</p>"+this.formofdatos.value.email+"</p><p style='font-weight:bold;'>Monto</p>"+this.formof.value.prestamo+"</p><p style='font-weight:bold;'>Ingresos Negocio</p>"+this.formof.value.ingreso+
-      " <p style='font-weight:bold;'>Gastos Familiares</p>"+this.formof.value.gastos+" <p style='font-weight:bold;'>Atrasos en otro Prestamo</p>"+this.formof.value.atrasos)
+      " <p style='font-weight:bold;'>Gastos Familiares</p>"+this.formof.value.gastos+" <p style='font-weight:bold;'>Atrasos en otro Prestamo</p>"+this.formof.value.atrasos),
+      name: this.formofdatos.value.nombre,
+      phone: this.formofdatos.value.phone
     }
     ///let headers = new HttpHeaders({
     //  'Access-Control-Allow-Origin' : '*'
